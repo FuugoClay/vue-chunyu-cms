@@ -1,25 +1,24 @@
-## 项目简介
-淳渔是一款快速搭建影视类网站的系统，它用户端基于[nuxt3](https://nuxt.com/)和 [element-ui](https://element.eleme.cn/#/zh-CN) ,管理端基于 [vue3](https://cn.vuejs.org/) 和 [element-ui](https://element.eleme.cn/#/zh-CN) ，后端基于 node 的后端框架 [nestjs](https://docs.nestjs.cn/8/) ，数据库采用 mysql ，缓存采用 redis。
+## Project Introduction
+Chunyu is a system designed for quickly building film and television websites. Its user-end is based on [nuxt3](https://nuxt.com/) and [element-ui](https://element.eleme.cn/#/zh-CN), the management-end on [vue3](https://cn.vuejs.org/) and [element-ui](https://element.eleme.cn/#/zh-CN), the backend on Node's framework [nestjs](https://docs.nestjs.cn/8/), using MySQL for the database, and Redis for caching.
 
+## Online Experience
+  - [User-end Demo](http://cms.yinchunyu.com)
+  - [Management-end Demo](http://cms-admin.yinchunyu.com)
+  - Source Code: [GitHub](https://github.com/yinMrsir/chunyu-cms) | [Gitee](https://gitee.com/chunyu-cms/chunyu-cms)
+  - [Nuxt3 Tutorial Documentation](https://www.yinchunyu.com)
+  - [Nuxt3 Video Tutorial](https://www.bilibili.com/video/BV1gu4y1R7Jt/?spm_id_from=333.999.0.0&vd_source=9dbe815ca79d8528e02be1a51583912a)
 
-## 在线体验
-  - [用户端演示地址](http://cms.yinchunyu.com)
-  - [管理端演示地址](http://cms-admin.yinchunyu.com)
-  - 源码地址: [GitHub](https://github.com/yinMrsir/chunyu-cms) | [Gitee](https://gitee.com/chunyu-cms/chunyu-cms)
-  - [Nuxt3教程文档](https://www.yinchunyu.com)
-  - [Nuxt3视频教程](https://www.bilibili.com/video/BV1gu4y1R7Jt/?spm_id_from=333.999.0.0&vd_source=9dbe815ca79d8528e02be1a51583912a)
-
-## 技术要求
+## Technical Requirements
   - [Vue](https://cn.vuejs.org/)
   - [Element-ui](https://element.eleme.cn/#/zh-CN)
   - [TypeScript](https://www.tslang.cn/index.html)
   - [Nestjs](https://docs.nestjs.cn/8/)
   - [TypeORM](https://typeorm.biunav.com/)
-  - Mysql
+  - MySQL
   - Redis
   
-## 技术选型
-  1. **前端技术**
+## Technology Selection
+  1. **Front-end Technology**
    - nuxt @3.6.5
    - vue @3.2.45
    - element-plus @2.2.21
@@ -28,26 +27,26 @@
    - vue-router @3.4.9
    - sass-loader @10.1.1
 
-  2. **后端技术**
+  2. **Backend Technology**
    - nest @8.0
    - mysql2 @2.3.3
    - swagger-ui-express @4.2.0
    - typeorm @0.2.41
    - ioredis @4.28.2
 
-## 开发前
+## Before Development
 
-如未安装`mysql`数据库和`redis`请先自行安装。可选mysql8，redis7。[安装教程](#相关链接)
+If you have not installed MySQL and Redis, please do so first. MySQL 8 and Redis 7 are recommended. [Installation Guide](#related-links)
 
-如果没有安装nest-cli，先执行`npm install -g @nestjs/cli`命令全局安装
+If nest-cli is not installed, execute `npm install -g @nestjs/cli` to install it globally.
 
-本地开发启动服务可查看：[相关视频](https://www.douyin.com/user/MS4wLjABAAAAUKMCVZGbQl7etrdd36GBIG6OGxClOwoHci_-PIlxNvE?modal_id=7213009576487177504)
+For local development and service startup, see: [Related Video](https://www.douyin.com/user/MS4wLjABAAAAUKMCVZGbQl7etrdd36GBIG6OGxClOwoHci_-PIlxNvE?modal_id=7213009576487177504)
 
-## 部署
+## Deployment
 
-### 构建服务端：
+### Building the Server:
 
-先修改`Nest-server/src/config/config.production.ts`中的数据库连接配置信息后执行：
+First, modify the database connection configuration in `Nest-server/src/config/config.production.ts`, then execute:
 
 ```shell
 cd Nest-server
@@ -55,9 +54,8 @@ yarn
 yarn build
 ```
 
-### 构建用户端：
-
-在Nuxt-web目录中创建`.env`文件并写入`BASE_URL=服务端请求地址`
+### Building the User-end:
+Create a `.env` file in the Nuxt-web directory and write `BASE_URL=server request address`
 
 ```shell
 cd Nuxt-web
@@ -65,16 +63,15 @@ yarn
 yarn build
 ```
 
-构建完成后，可通过pm2进行部署，未安装的可执行`npm install -g pm2`安装
+### After building, deployment can be done using pm2. If not installed, execute npm install -g pm2 to install.
+Execute the following command to start the service:
 
-执行以下命令启动服务：
 ```shell
 pm2 start pm2.config.cjs
 ```
 
-### 构建管理端
-
-执行以下命令会生成`dist`目录，可通过`nginx`指定到目录。
+### Building the Management-end
+Execute the following commands to generate the `dist` directory, which can be pointed to using `nginx`:
 
 ```shell
 cd Vue3-admin
@@ -82,61 +79,61 @@ yarn
 yarn build:prod
 ```
 
-### 单文件打包
-如果你有需求要打包成单文件或者pkg包，可进入Nest-server执行`yarn ncc:pkg`, 因bull库不支持单文件执行，所以打包前需将引入了bull库的相关模块移除！
+### Single File Packaging
+If you need to package into a single file or a pkg package, enter Nest-server and execute `yarn ncc:pkg`.
+Since the bull library does not support single-file execution, you must remove the modules that imported the bull library before packaging!
 
-## 更新
-- [x] [友情链接支持后台配置](https://www.douyin.com/user/MS4wLjABAAAAUKMCVZGbQl7etrdd36GBIG6OGxClOwoHci_-PIlxNvE?modal_id=7225255650392132903)
-- [x] 用户影视评分
-- [x] 用户签到
-- [x] 用户签到获得金币
-- [x] 视频支持支付付费观看
-- [x] [支持图片、视频上传至阿里云oss](#如何使用阿里云oss上传文件)
+## Updates
+- [x] Support for back-end configuration of friendly links
+- [x] User film and television rating
+- [x] User check-in
+- [x] User earns coins for check-in
+- [x] Support for paid viewing of videos
+- [x] Support for uploading images and videos to Alibaba Cloud OSS
 
+### To Be Completed
+- [ ] User purchases coins
+- [ ] Video sending bullet comments
 
-### 待完成
-- [ ] 用户购买金币
-- [ ] 视频发送弹幕
+## Related Links
 
-## 相关链接
+Windows Docker Installation: https://zhuanlan.zhihu.com/p/441965046
 
-win安装Docker: https://zhuanlan.zhihu.com/p/441965046
+Docker Installation of Redis：https://www.yinchunyu.com/other/redis.html
 
-docker安装redis：https://www.yinchunyu.com/other/redis.html
+Docker Installation of MySQL：https://www.runoob.com/docker/docker-install-mysql.html
 
-docker安装mysql：https://www.runoob.com/docker/docker-install-mysql.html
+Solving Navicat Database Connection Issue `client does not support authentication`：https://blog.csdn.net/lovedingd/article/details/106728292
 
-解决Navicat连接数据库提示`client does not support authentication：https://blog.csdn.net/lovedingd/article/details/106728292
-
-## 有任何疑问可添加微信
+## For Any Questions, Add WeChat:
 
 <img height="120" src="https://gitee.com/chunyu-cms/chunyu-cms/raw/main/wx.jpg" width="120"/>
 
-## 如何使用阿里云Oss上传文件
-**第一步** 修改`pm2.config.cjs` 或直接修改 `Nest-server/src/config`目录对应配置文件
-```ts
+## How to Use Alibaba Cloud OSS for Uploading Files
+Step One Modify `pm2.config.cjs` or directly modify the corresponding configuration file in the `Nest-server/src/config` directory:
+
 // 1、pm2.config.js
 module.exports = {
   apps : [
     {
       env: {
         // ...
-        // 填写Bucket所在地域。以华东1（杭州）为例，Region填写为oss-cn-hangzhou。
+        // Fill in the region where the Bucket is located. For example, for East China 1 (Hangzhou), fill in oss-cn-hangzhou for Region:
         REGION: '',
-        // 阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
+        // The Aliyun account AccessKey has access to all APIs and is very high risk. It is strongly recommended that you create and use a RAM user for API access or routine operations, please log in to the RAM console to create a RAM user:
         ACCESS_KEY_Id: '',
         ACCESS_KEY_SECRET: '',
-        // 填写Bucket名称。
+        // Fill in the Bucket name:
         BUCKET: '',
-        // 是否支持上传自定义域名
+        // Whether to support uploading with a custom domain:
         CNAME: false,
-        // OSS访问域名
+        // OSS access domain:
         ENDPOINT: ''
       }
     }
   ]
 };
 ```
-**第二步** 进入后台系统管理-参数配置，将*是否开启文件上传至阿里云*参数键值修改为`1`
+**Step Two** Go to the back-end system management - parameter configuration, and change the Whether to enable file upload to Alibaba Cloud parameter key value to `1`
 
-> 注意：管理端通过视频截取封面存在跨域问题，所以需要在阿里云配置允许跨域。
+> Note: The management-end has a cross-origin issue when capturing video covers, so you need to configure Alibaba Cloud to allow cross-origin.
